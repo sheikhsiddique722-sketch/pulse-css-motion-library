@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PULSE // motion engine for the next web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=JetBrains+Mono:wght@300;400;500;700&family=Orbitron:wght@400;600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- background atmosphere -->
+<div class="bg-layers">
+  <div class="grid-bg"></div>
+  <div class="gradient-orb orb-1"></div>
+  <div class="gradient-orb orb-2"></div>
+  <div class="gradient-orb orb-3"></div>
+</div>
+<canvas id="particles"></canvas>
+
+<!-- custom cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#" class="logo">
+    <span class="logo-dot"></span>
+    pulse
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#showcase">Showcase</a></li>
+    <li><a href="#playground">Playground</a></li>
+    <li><a href="#docs">Docs</a></li>
+    <li><a href="#api">API</a></li>
+    <li><a href="#community">Community</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+  </ul>
+  <a href="#" class="nav-cta">Get Started →</a>
+  <button class="menu-toggle" id="menu-toggle">☰</button>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-meta">
+        <span class="hero-meta-dot"></span>
+        <span>v3.0 // neon released — 22.05.26</span>
+      </div>
+      <h1>
+        <span class="line-1">Motion</span>
+        <span class="line-2">Engineered</span>
+        <span class="line-3">for the next web</span>
+      </h1>
+      <p>Pulse is a CSS-native motion library built for developers who refuse to ship boring interfaces. Sixty-FPS animations, zero runtime overhead, infinite expressive range.</p>
+      <div class="hero-cta-group">
+        <a href="#playground" class="btn btn-primary">Try Live <span class="btn-arrow">→</span></a>
+        <a href="#docs" class="btn btn-ghost">Read Docs</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">2.4kb</div>
+          <div class="stat-label">gzipped core</div>
+        </div>
+        <div>
+          <div class="stat-num">142+</div>
+          <div class="stat-label">presets shipped</div>
+        </div>
+        <div>
+          <div class="stat-num">60fps</div>
+          <div class="stat-label">gpu accelerated</div>
+        </div>
+        <div>
+          <div class="stat-num">38k</div>
+          <div class="stat-label">github stars</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-viz">
+      <div class="terminal">
+        <div class="terminal-head">
+          <div class="terminal-dots"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span></div>
+          <div class="terminal-title">~/pulse/init.css</div>
+        </div>
+        <div class="terminal-body">
+<span class="term-line"><span class="term-comment">// install via npm or cdn</span></span>
+<span class="term-line"><span class="term-prompt">$</span> npm i <span class="term-string">@pulse/core</span></span>
+<span class="term-line">&nbsp;</span>
+<span class="term-line"><span class="term-keyword">.element</span> {</span>
+<span class="term-line">&nbsp;&nbsp;<span class="term-prop">animation</span>: <span class="term-fn">pulse</span>(<span class="term-string">'levitate'</span>);</span>
+<span class="term-line">&nbsp;&nbsp;<span class="term-prop">--velocity</span>: <span class="term-string">0.8</span>;</span>
+<span class="term-line">&nbsp;&nbsp;<span class="term-prop">--ease</span>: <span class="term-string">elastic-out</span>;</span>
+<span class="term-line">}<span class="cursor-blink"></span></span>
+        </div>
+        <div class="viz-preview">
+          <div class="viz-shape"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- SHOWCASE -->
+<section id="showcase">
+  <div class="reveal">
+    <div class="section-label">01 // Animation Showcase</div>
+    <h2 class="section-title">Motion <em>presets</em><br>ready to deploy</h2>
+    <p class="section-sub">A curated arsenal of animations engineered for production. Each preset is GPU-accelerated, reduced-motion compliant, and tuned for that elusive feel of "wait, how did they do that?"</p>
+  </div>
+  <div class="showcase-grid">
+    <div class="showcase-card reveal" data-card="neon-pulse">
+      <div class="showcase-preview preview-1"><div class="preview-orb"></div></div>
+      <div class="showcase-name">Neon Pulse</div>
+      <div class="showcase-desc">Radiating glow with cubic-bezier easing. Perfect for status indicators and CTAs.</div>
+      <div class="showcase-meta"><span>02 keyframes</span><span class="id">#PUL-001</span></div>
+      <span class="card-click-hint">↗ view preset</span>
+    </div>
+    <div class="showcase-card reveal" data-card="audio-bars">
+      <div class="showcase-preview preview-2"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+      <div class="showcase-name">Audio Bars</div>
+      <div class="showcase-desc">Staggered scale-Y animation. Drop-in waveform visualizer with offset delays.</div>
+      <div class="showcase-meta"><span>06 elements</span><span class="id">#PUL-014</span></div>
+      <span class="card-click-hint">↗ view preset</span>
+    </div>
+    <div class="showcase-card reveal" data-card="orbit-loader">
+      <div class="showcase-preview preview-3"><div class="ring"></div></div>
+      <div class="showcase-name">Orbit Loader</div>
+      <div class="showcase-desc">Counter-rotating rings with chromatic aberration. Loading states that feel alive.</div>
+      <div class="showcase-meta"><span>linear ∞</span><span class="id">#PUL-027</span></div>
+      <span class="card-click-hint">↗ view preset</span>
+    </div>
+    <div class="showcase-card reveal" data-card="data-stream">
+      <div class="showcase-preview preview-4"><div class="wave"></div><div class="wave"></div><div class="wave"></div><div class="wave"></div></div>
+      <div class="showcase-name">Data Stream</div>
+      <div class="showcase-desc">Asynchronous horizontal sweep. Built for dashboards and live data feeds.</div>
+      <div class="showcase-meta"><span>4 channels</span><span class="id">#PUL-031</span></div>
+      <span class="card-click-hint">↗ view preset</span>
+    </div>
+    <div class="showcase-card reveal" data-card="holo-cube">
+      <div class="showcase-preview preview-5">
+        <div class="cube">
+          <div class="face face-f"></div><div class="face face-b"></div>
+          <div class="face face-r"></div><div class="face face-l"></div>
+          <div class="face face-t"></div><div class="face face-bo"></div>
+        </div>
+      </div>
+      <div class="showcase-name">Holo Cube</div>
+      <div class="showcase-desc">CSS-only 3D rotation. Six-face transform with preserve-3d. Zero JS.</div>
+      <div class="showcase-meta"><span>3d transform</span><span class="id">#PUL-058</span></div>
+      <span class="card-click-hint">↗ view preset</span>
+    </div>
+    <div class="showcase-card reveal" data-card="glitch-text">
+      <div class="showcase-preview preview-6"><div class="glitch-text">PULSE</div></div>
+      <div class="showcase-name">Glitch Text</div>
+      <div class="showcase-desc">RGB split with clip-path masking. Brings the cyberpunk feeling to typography.</div>
+      <div class="showcase-meta"><span>type effect</span><span class="id">#PUL-073</span></div>
+      <span class="card-click-hint">↗ view preset</span>
+    </div>
+  </div>
+</section>
+
+<!-- PLAYGROUND -->
+<section id="playground" class="playground-section">
+  <div class="reveal">
+    <div class="section-label">02 // Code Playground</div>
+    <h2 class="section-title">Tinker in <em>real time</em></h2>
+    <p class="section-sub">Edit the CSS on the left. Watch the magic on the right. No build step, no waiting, no surprises in production.</p>
+  </div>
+  <div class="playground reveal">
+    <div class="code-panel">
+      <div class="panel-head">
+        <span class="panel-tag">/* playground.css */</span>
+        <div class="preset-tabs" id="preset-tabs">
+          <button class="preset-tab active" data-preset="levitate">Levitate</button>
+          <button class="preset-tab" data-preset="orbit">Orbit</button>
+          <button class="preset-tab" data-preset="warp">Warp</button>
+          <button class="preset-tab" data-preset="glitch">Glitch</button>
+          <button class="preset-tab" data-preset="bounce">Bounce</button>
+          <button class="preset-tab" data-preset="shake">Shake</button>
+          <button class="preset-tab" data-preset="flip">Flip</button>
+          <button class="preset-tab" data-preset="morph">Morph</button>
+        </div>
+      </div>
+      <div class="editor-wrap">
+        <div class="line-numbers" id="line-numbers"></div>
+        <textarea class="code-editor" id="code-editor" spellcheck="false"></textarea>
+      </div>
+      <div class="editor-footer">
+        <span class="editor-stat" id="editor-stat">0 lines</span>
+        <span class="editor-stat" style="color:var(--neon-cyan)">playground.css</span>
+      </div>
+    </div>
+    <div class="preview-panel">
+      <div class="preview-toolbar">
+        <span class="panel-tag">// live preview</span>
+        <div class="shape-selector">
+          <button class="shape-btn active" data-shape="square" title="Square">▪</button>
+          <button class="shape-btn" data-shape="circle" title="Circle">●</button>
+          <button class="shape-btn" data-shape="text" title="Text">T</button>
+        </div>
+      </div>
+      <div class="preview-stage">
+        <div id="playground-target"></div>
+      </div>
+      <div class="speed-control">
+        <span class="speed-label">Speed</span>
+        <input type="range" id="speed-slider" min="25" max="300" value="100" class="speed-slider">
+        <span class="speed-val" id="speed-val">1×</span>
+      </div>
+      <div class="preview-controls">
+        <button class="ctrl-btn" id="ctrl-replay">↻ Replay</button>
+        <button class="ctrl-btn" id="ctrl-pause">⏸ Pause</button>
+        <button class="ctrl-btn" id="ctrl-copy">⎘ Copy</button>
+        <button class="ctrl-btn" id="ctrl-export">↓ Export</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCS -->
+<section id="docs">
+  <div class="reveal">
+    <div class="section-label">03 // Documentation</div>
+    <h2 class="section-title">Learn the <em>system</em></h2>
+    <p class="section-sub">From the first import to production-grade choreography. Documentation that respects your time and intelligence.</p>
+  </div>
+  <div class="docs-grid">
+    <a href="javascript:void(0)" class="doc-card reveal" data-doc="quick-start">
+      <div class="doc-num">01</div>
+      <div class="doc-title">Quick Start</div>
+      <div class="doc-desc">Install Pulse and ship your first animation in under 60 seconds.</div>
+      <span class="doc-arrow">↗</span>
+    </a>
+    <a href="javascript:void(0)" class="doc-card reveal" data-doc="core-concepts">
+      <div class="doc-num">02</div>
+      <div class="doc-title">Core Concepts</div>
+      <div class="doc-desc">Understand custom properties, timeline composition, and easing curves.</div>
+      <span class="doc-arrow">↗</span>
+    </a>
+    <a href="javascript:void(0)" class="doc-card reveal" data-doc="easing-curves">
+      <div class="doc-num">03</div>
+      <div class="doc-title">Easing Curves</div>
+      <div class="doc-desc">42 hand-tuned cubic-bezier functions. Spring, elastic, expo, and beyond.</div>
+      <span class="doc-arrow">↗</span>
+    </a>
+    <a href="javascript:void(0)" class="doc-card reveal" data-doc="choreography">
+      <div class="doc-num">04</div>
+      <div class="doc-title">Choreography</div>
+      <div class="doc-desc">Orchestrate sequences across elements with timeline primitives.</div>
+      <span class="doc-arrow">↗</span>
+    </a>
+    <a href="javascript:void(0)" class="doc-card reveal" data-doc="scroll-triggers">
+      <div class="doc-num">05</div>
+      <div class="doc-title">Scroll Triggers</div>
+      <div class="doc-desc">Native scroll-driven animations powered by the View Timeline API.</div>
+      <span class="doc-arrow">↗</span>
+    </a>
+    <a href="javascript:void(0)" class="doc-card reveal" data-doc="performance">
+      <div class="doc-num">06</div>
+      <div class="doc-title">Performance</div>
+      <div class="doc-desc">GPU layer hints, will-change strategy, and frame-budget profiling.</div>
+      <span class="doc-arrow">↗</span>
+    </a>
+    <a href="javascript:void(0)" class="doc-card reveal" data-doc="theming">
+      <div class="doc-num">07</div>
+      <div class="doc-title">Theming</div>
+      <div class="doc-desc">Override every token. Build your own dialect on the Pulse foundation.</div>
+      <span class="doc-arrow">↗</span>
+    </a>
+    <a href="javascript:void(0)" class="doc-card reveal" data-doc="migration">
+      <div class="doc-num">08</div>
+      <div class="doc-title">Migration</div>
+      <div class="doc-desc">Move from Framer Motion, GSAP, or Anime.js with minimal friction.</div>
+      <span class="doc-arrow">↗</span>
+    </a>
+  </div>
+</section>
+
+<!-- API -->
+<section id="api" class="api-section">
+  <div class="reveal">
+    <div class="section-label">04 // API Integration</div>
+    <h2 class="section-title">Animate <em>anything</em><br>from anywhere</h2>
+    <p class="section-sub">The Pulse REST API lets you generate, compile, and deploy CSS animations programmatically. Build tools, design systems, or your own animation editor.</p>
+  </div>
+
+  <!-- API Stats Bar -->
+  <div class="api-stats-bar reveal">
+    <div class="api-stat-item">
+      <span class="api-stat-num">99.9%</span>
+      <span class="api-stat-lbl">Uptime SLA</span>
+    </div>
+    <div class="api-stat-div"></div>
+    <div class="api-stat-item">
+      <span class="api-stat-num">&lt;40ms</span>
+      <span class="api-stat-lbl">Avg Latency</span>
+    </div>
+    <div class="api-stat-div"></div>
+    <div class="api-stat-item">
+      <span class="api-stat-num">4.2M</span>
+      <span class="api-stat-lbl">Requests / Day</span>
+    </div>
+    <div class="api-stat-div"></div>
+    <div class="api-stat-item">
+      <span class="api-stat-num">v3.1</span>
+      <span class="api-stat-lbl">Latest Version</span>
+    </div>
+    <div class="api-stat-div"></div>
+    <div class="api-stat-item">
+      <span class="api-stat-dot"></span>
+      <span class="api-stat-lbl" style="color:var(--neon-lime)">All Systems Operational</span>
+    </div>
+  </div>
+
+  <!-- API Explorer -->
+  <div class="api-explorer reveal">
+    <!-- Endpoint Tabs -->
+    <div class="api-endpoint-bar">
+      <button class="api-ep-tab active" data-ep="compile">
+        <span class="ep-method post">POST</span>/v1/compile
+      </button>
+      <button class="api-ep-tab" data-ep="presets">
+        <span class="ep-method get">GET</span>/v1/presets
+      </button>
+      <button class="api-ep-tab" data-ep="webhook">
+        <span class="ep-method post">POST</span>/v1/webhooks
+      </button>
+      <button class="api-ep-tab" data-ep="validate">
+        <span class="ep-method get">GET</span>/v1/validate
+      </button>
+    </div>
+
+    <div class="api-explorer-body">
+      <!-- Request Panel -->
+      <div class="api-req-panel">
+        <div class="api-panel-head">
+          <span class="api-panel-tag">Request</span>
+          <div class="api-lang-switcher">
+            <button class="api-lang active" data-lang="curl">cURL</button>
+            <button class="api-lang" data-lang="node">Node</button>
+            <button class="api-lang" data-lang="python">Python</button>
+          </div>
+        </div>
+        <pre class="api-code-block" id="api-req-code"></pre>
+        <button class="api-try-btn" id="api-try-btn">
+          <span class="api-try-text">▶ Send Request</span>
+          <span class="api-try-loader" style="display:none">⟳ Sending…</span>
+        </button>
+      </div>
+
+      <!-- Response Panel -->
+      <div class="api-res-panel">
+        <div class="api-panel-head">
+          <span class="api-panel-tag">Response</span>
+          <span class="api-status-badge" id="api-status-badge">— awaiting</span>
+        </div>
+        <pre class="api-code-block" id="api-res-code"><span style="color:var(--ink-mute)">// Hit "Send Request" to see the response</span></pre>
+        <div class="api-res-meta" id="api-res-meta"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SDK Strip -->
+  <div class="sdk-strip reveal">
+    <span class="sdk-label">Official SDKs</span>
+    <div class="sdk-badges">
+      <div class="sdk-badge" data-sdk="node"   data-cmd="npm install @pulse/node"><span class="sdk-icon">⬡</span>Node.js</div>
+      <div class="sdk-badge" data-sdk="python" data-cmd="pip install pulse-py"><span class="sdk-icon">🐍</span>Python</div>
+      <div class="sdk-badge" data-sdk="rust"   data-cmd="cargo add pulse"><span class="sdk-icon">🦀</span>Rust</div>
+      <div class="sdk-badge" data-sdk="go"     data-cmd="go get github.com/pulse-dev/go"><span class="sdk-icon">🔷</span>Go</div>
+      <div class="sdk-badge" data-sdk="deno"   data-cmd='import Pulse from "npm:@pulse/deno"'><span class="sdk-icon">🦕</span>Deno</div>
+      <div class="sdk-badge sdk-badge-soon"><span class="sdk-icon">💎</span>Ruby <span class="soon-tag">soon</span></div>
+    </div>
+    <!-- SDK install popup -->
+    <div class="sdk-popup" id="sdk-popup">
+      <span class="sdk-popup-cmd" id="sdk-popup-cmd"></span>
+      <button class="sdk-popup-copy" id="sdk-popup-copy">Copy</button>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section id="community" class="community-section">
+  <div class="reveal">
+    <div class="section-label">05 // Developer Community</div>
+    <h2 class="section-title">Build with the <em>collective</em></h2>
+    <p class="section-sub">Pulse is built in the open with thousands of motion-obsessed developers. Ship faster, learn deeper, get unstuck.</p>
+  </div>
+  <div class="comm-grid">
+    <div class="comm-card comm-card-big reveal" data-comm="discord">
+      <div class="section-label" style="margin-bottom: 16px;">Discord HQ</div>
+      <div class="comm-title">14,200 devs trading motion secrets in real-time</div>
+      <div class="comm-desc">Office hours every Thursday. Weekly motion design challenges. Direct line to the core team. The single best resource for going from "this is cool" to "I shipped this in production yesterday."</div>
+      <span class="comm-cta">Join Discord <span class="btn-arrow">→</span></span>
+      <div class="discord-badges">
+        <span class="badge">#showcase</span>
+        <span class="badge">#help</span>
+        <span class="badge">#presets</span>
+        <span class="badge">#feedback</span>
+        <span class="badge">#hiring</span>
+        <span class="badge">#offtopic</span>
+      </div>
+    </div>
+    <div class="comm-card reveal" data-comm="github">
+      <div class="comm-stat">38k</div>
+      <div class="comm-label">github stars</div>
+      <p style="font-size: 13px; color: var(--ink-dim); line-height: 1.6;">Pulse is MIT-licensed and built in the open. Read the source, ship a PR, become a core contributor.</p>
+      <span class="comm-cta-sm">View on GitHub →</span>
+    </div>
+    <div class="comm-card reveal" data-comm="presets">
+      <div class="comm-stat">512</div>
+      <div class="comm-label">community presets</div>
+      <p style="font-size: 13px; color: var(--ink-dim); line-height: 1.6;">Browse user-submitted animations. Vote your favorites into the official library.</p>
+      <span class="comm-cta-sm">Browse Presets →</span>
+    </div>
+    <div class="comm-card reveal" data-comm="testimonial-maya">
+      <p class="testimonial">"Pulse replaced 60kb of animation library with 2.4kb of pure CSS. Our LCP dropped 380ms overnight."</p>
+      <div class="testimonial-author">
+        <div class="test-avatar">MK</div>
+        <div>
+          <div class="test-name">Maya Kowalski</div>
+          <div class="test-handle">@maya / lead eng, parabola</div>
+        </div>
+      </div>
+    </div>
+    <div class="comm-card reveal" data-comm="testimonial-tomas">
+      <p class="testimonial">"The choreography API changed how I think about motion. It's not animations anymore. It's storytelling."</p>
+      <div class="testimonial-author">
+        <div class="test-avatar" style="background: linear-gradient(135deg, var(--neon-cyan), var(--neon-violet));">TR</div>
+        <div>
+          <div class="test-name">Tomás Reyes</div>
+          <div class="test-handle">@trez / design eng, vector</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY MODAL -->
+<div class="modal-overlay" id="comm-overlay">
+  <div class="comm-modal" id="comm-modal">
+    <div class="comm-modal-head">
+      <span class="comm-modal-tag" id="comm-modal-tag"></span>
+      <button class="modal-close" id="comm-close">✕</button>
+    </div>
+    <div class="comm-modal-body" id="comm-modal-body"></div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="reveal">
+    <div class="section-label">06 // Pricing</div>
+    <h2 class="section-title">Simple. <em>Honest.</em><br>Built for builders.</h2>
+    <p class="section-sub">The library is free forever. Pay only when you need the cloud compiler, team workspaces, or priority support.</p>
+  </div>
+
+  <!-- billing toggle -->
+  <div class="pricing-toggle reveal">
+    <span class="ptoggle-label" id="ptoggle-monthly">Monthly</span>
+    <button class="ptoggle-btn" id="ptoggle-btn" aria-label="Toggle billing">
+      <span class="ptoggle-thumb"></span>
+    </button>
+    <span class="ptoggle-label" id="ptoggle-annual">Annual <span class="ptoggle-save">Save 20%</span></span>
+  </div>
+
+  <div class="pricing-grid">
+    <!-- FREE -->
+    <div class="price-card reveal" data-plan="free">
+      <div class="price-badge-row"><div class="price-tier">free</div></div>
+      <div class="price-amount"><span class="currency">$</span><span class="price-num">0</span><span class="period">/forever</span></div>
+      <div class="price-desc">The full open-source library. Use it in personal and commercial projects. No watermark, no asterisks.</div>
+      <ul class="price-features">
+        <li><span class="pf-check">✓</span>All 142+ motion presets</li>
+        <li><span class="pf-check">✓</span>Local CLI compiler</li>
+        <li><span class="pf-check">✓</span>Community Discord access</li>
+        <li><span class="pf-check">✓</span>MIT license</li>
+        <li class="disabled"><span class="pf-x">✕</span>Cloud compiler API</li>
+        <li class="disabled"><span class="pf-x">✕</span>Team workspaces</li>
+      </ul>
+      <button class="price-btn" data-plan="free">Install via npm →</button>
+    </div>
+
+    <!-- CORE -->
+    <div class="price-card featured reveal" data-plan="core">
+      <div class="price-badge-row">
+        <div class="price-tier">core</div>
+        <span class="price-popular-badge">Most Popular</span>
+      </div>
+      <div class="price-amount">
+        <span class="currency">$</span><span class="price-num" data-monthly="19" data-annual="15">19</span><span class="period">/mo</span>
+      </div>
+      <div class="price-annual-note" id="core-annual-note" style="display:none">Billed $190/yr — 2 months free</div>
+      <div class="price-desc">For solo devs and small teams shipping motion-rich products. Adds the cloud and the niceties.</div>
+      <ul class="price-features">
+        <li><span class="pf-check">✓</span>Everything in Free</li>
+        <li><span class="pf-check">✓</span>Cloud compiler API (50k req/mo)</li>
+        <li><span class="pf-check">✓</span>Visual editor with live preview</li>
+        <li><span class="pf-check">✓</span>Private preset collections</li>
+        <li><span class="pf-check">✓</span>Priority email support</li>
+        <li><span class="pf-check">✓</span>Early access to new presets</li>
+      </ul>
+      <button class="price-btn" data-plan="core">Start 14-Day Free Trial →</button>
+      <p class="price-footnote">No credit card required</p>
+    </div>
+
+    <!-- STUDIO -->
+    <div class="price-card reveal" data-plan="studio">
+      <div class="price-badge-row"><div class="price-tier">studio</div></div>
+      <div class="price-amount">
+        <span class="currency">$</span><span class="price-num" data-monthly="89" data-annual="71">89</span><span class="period">/mo</span>
+      </div>
+      <div class="price-annual-note" id="studio-annual-note" style="display:none">Billed $850/yr — 2 months free</div>
+      <div class="price-desc">For agencies and product teams orchestrating motion across multiple brands and projects.</div>
+      <ul class="price-features">
+        <li><span class="pf-check">✓</span>Everything in Core</li>
+        <li><span class="pf-check">✓</span>Unlimited API requests</li>
+        <li><span class="pf-check">✓</span>Team workspaces (up to 20)</li>
+        <li><span class="pf-check">✓</span>Design system integration</li>
+        <li><span class="pf-check">✓</span>SLA + Slack Connect support</li>
+        <li><span class="pf-check">✓</span>Custom preset development</li>
+      </ul>
+      <button class="price-btn" data-plan="studio">Talk to Us →</button>
+      <p class="price-footnote">We reply within 24 hours</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING MODAL -->
+<div class="modal-overlay" id="pricing-overlay">
+  <div class="pricing-modal" id="pricing-modal">
+    <button class="modal-close" id="pricing-close">✕</button>
+    <div id="pricing-modal-inner"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="javascript:void(0)" class="logo" id="footer-logo"><span class="logo-dot"></span>pulse</a>
+        <p class="footer-tag">A motion engine for developers who care about how things feel. Built in Karachi, Berlin, and Mexico City.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#showcase">Showcase</a></li>
+          <li><a href="#playground">Playground</a></li>
+          <li><a href="#docs">Documentation</a></li>
+          <li><a href="#api">API</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="javascript:void(0)" data-footer="changelog">Changelog</a></li>
+          <li><a href="javascript:void(0)" data-footer="migration">Migration guide</a></li>
+          <li><a href="javascript:void(0)" data-footer="roadmap">Roadmap</a></li>
+          <li><a href="javascript:void(0)" data-footer="brand">Brand assets</a></li>
+          <li><a href="javascript:void(0)" data-footer="status">Status</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Community</h4>
+        <ul>
+          <li><a href="javascript:void(0)" data-footer="discord">Discord</a></li>
+          <li><a href="javascript:void(0)" data-footer="github">GitHub</a></li>
+          <li><a href="javascript:void(0)" data-footer="twitter">X / Twitter</a></li>
+          <li><a href="javascript:void(0)" data-footer="youtube">YouTube</a></li>
+          <li><a href="javascript:void(0)" data-footer="newsletter">Newsletter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Pulse Labs // MIT licensed</div>
+      <div>Crafted with motion in mind</div>
+    </div>
+  </div>
+</footer>
+
+<!-- FOOTER MODAL -->
+<div class="modal-overlay" id="footer-overlay">
+  <div class="comm-modal" id="footer-modal">
+    <div class="comm-modal-head">
+      <span class="comm-modal-tag" id="footer-modal-tag"></span>
+      <button class="modal-close" id="footer-close">✕</button>
+    </div>
+    <div class="comm-modal-body" id="footer-modal-body"></div>
+  </div>
+</div>
+
+<!-- DOCS MODAL -->
+<div class="modal-overlay" id="docs-overlay">
+  <div class="docs-modal" id="docs-modal">
+    <div class="docs-modal-head">
+      <div class="docs-modal-meta">
+        <span class="docs-modal-num" id="docs-num"></span>
+        <span class="docs-modal-title" id="docs-title"></span>
+      </div>
+      <button class="modal-close" id="docs-close">✕</button>
+    </div>
+    <div class="docs-modal-body">
+      <div class="docs-modal-left">
+        <p class="docs-intro" id="docs-intro"></p>
+        <div class="docs-points" id="docs-points"></div>
+      </div>
+      <div class="docs-modal-right">
+        <div class="docs-code-label">// example</div>
+        <pre class="docs-code" id="docs-code"></pre>
+        <button class="modal-copy-btn" id="docs-copy" style="margin-top:12px;width:100%">⎘ Copy Code</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SHOWCASE MODAL -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" id="modal">
+    <div class="modal-head">
+      <div class="modal-title-wrap">
+        <span class="modal-id" id="modal-id"></span>
+        <span class="modal-name" id="modal-name"></span>
+      </div>
+      <button class="modal-close" id="modal-close">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-preview">
+        <div class="modal-preview-inner" id="modal-preview"></div>
+      </div>
+      <div class="modal-code-panel">
+        <div class="modal-code-label">// CSS source</div>
+        <pre class="modal-code" id="modal-code"></pre>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="modal-desc-text" id="modal-desc"></p>
+      <button class="modal-copy-btn" id="modal-copy">⎘ Copy CSS</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
